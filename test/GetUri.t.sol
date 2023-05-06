@@ -6,8 +6,12 @@ import "src/MyTokenResolver.sol";
 
 contract MyTokenResolverTest is Test {
 
+    MyTokenResolver resolver = new MyTokenResolver("ipfs://xyz");
+
     function setUp() public {}
 
-    function testOne() public {
+    function testGetUri() public {
+        string memory result = resolver.getUri(1);
+        assertEq(result, "ipfs://xyz");
     }
 }
